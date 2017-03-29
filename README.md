@@ -21,12 +21,15 @@ Run a docker image.
 
 Code in [service-producer](service-producer). API defined in [service-api](service-api).
 
+mvn install  // 安装依赖到本地
+
 Build docker image:
 
 ```
 cd service-producer
 mvn package
-docker build -t producer .
+mvn install
+
 ```
 
 ## Service Consumer
@@ -38,7 +41,8 @@ Build docker image:
 ```
 cd service-consumer
 mvn package
-docker build -t consumer .
+mvn install
+
 ```
 
 ## Run
@@ -47,7 +51,7 @@ Use docker-compose command to run it.
 
 ```
 cd docker
-docker-compose up -d
+docker-compose up --build
 ```
 
 Verify that all works:
